@@ -4,8 +4,8 @@ let gameover=false;
 const changeTurn=()=>{
 return turn ==="X"?"0":"X";
 }
+const boxes = document.querySelectorAll(".game-box");
 const checkDrawn=()=>{
-    const boxes = document.querySelectorAll(".game-box");
   const boxtext = Array.from(boxes).map((box) => box.querySelector(".game-text").innerText);
   if (boxtext.every((text) => text !== "")) {
     document.querySelector('.turn').innerText = "Draw";
@@ -44,7 +44,6 @@ wins.forEach(e => {
   
 
 
-let boxes=document.querySelectorAll(".game-box");
 Array.from(boxes).forEach(element=>{
     let boxtext=element.querySelector(".game-text");
     element.addEventListener('click',()=>{
@@ -69,13 +68,17 @@ Array.from(boxes).forEach(element=>{
     
 
 })
-document.querySelector('#reset').addEventListener('click',()=>{
-boxes=document.querySelectorAll(".game-box");
-    Array.from(boxes).forEach((el)=>{
-    el.querySelector(".game-text").innerText="";
+document.querySelector('#reset').addEventListener('click', () => {
+    let boxes = document.querySelectorAll(".game-box");
+  
+    boxes.forEach(box => {
+      box.querySelector('.game-text').innerText = "";
+      box.classList.remove('winning-box');
     });
-    turn="X";
-    gameover=false;
-    document.querySelector('.turn').innerText="turn for "+turn;
-    document.querySelector('.img').style.width="0px";
-})
+  
+    turn = "X";
+    gameover = false;
+    document.querySelector('.turn').innerText = "Turn for " + turn;
+    document.querySelector('.img').style.width = "0px";
+  });
+  
