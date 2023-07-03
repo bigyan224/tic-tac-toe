@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.game-container{
+    background: linear-gradient(aqua,yellow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    height: 80vh;
+    margin: 50px auto;
+    box-shadow: 10px 20px 10px 10px rgba(185, 185, 185, 1);
+}
+.game{
+    display: grid;
+    grid-template-columns: repeat(3,10vw);
+    grid-template-rows: repeat(3,10vw);
+}
+.game-box{
+    border: 2px solid black;
+    font-size: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(149, 236, 244);
+}
+
+.game-box:hover{
+    background-color: rgb(232, 194, 232);
+    cursor: pointer;
+}
+.info{
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 500px;
+    align-items: center;
+} 
+.img{
+    width: 0;
+    transition: width 0.5s ease-in-out;
+}
+#reset{
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    margin-top: 20px;
+}
+#reset:hover{
+    background-color: rgb(202, 240, 52);
+}
+@media only screen and (max-width: 900px) {
+    .game-container{
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+    }
+    .game{
+        grid-template-columns: repeat(3,90px);
+    grid-template-rows: repeat(3,90px);
+    margin-top: 20px;
+    }
+    .info{
+        margin:50px 0 0 0;
+    }
+.game-text{
+    font-size:40px;
+    font-weight: bold;
+}
+}
