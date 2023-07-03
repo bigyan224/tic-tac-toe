@@ -28,7 +28,7 @@
 }
 
 .game-box:hover{
-    background-color: rgb(232, 194, 232);
+    background-color: rgba(232, 194, 232, 0.503);
     cursor: pointer;
 }
 .info{
@@ -76,5 +76,8 @@
 .game-text{
     font-size:40px;
     font-weight: bold;
+}
+.game-box:hover{
+    cursor: pointer;
 }
 }
