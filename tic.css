@@ -27,10 +27,6 @@
     background-color: rgb(149, 236, 244);
 }
 
-.game-box:hover{
-    background-color: rgba(232, 194, 232, 0.503);
-    cursor: pointer;
-}
 .info{
     margin-left: 50px;
     display: flex;
@@ -77,7 +73,5 @@
     font-size:40px;
     font-weight: bold;
 }
-.game-box:hover{
-    cursor: pointer;
-}
+
 }
