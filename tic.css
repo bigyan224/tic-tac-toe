@@ -26,6 +26,9 @@
     align-items: center;
     background-color: rgb(149, 236, 244);
 }
+.game-box:hover{
+    cursor: pointer;
+}
 
 .info{
     margin-left: 50px;
