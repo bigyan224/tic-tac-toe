@@ -25,10 +25,16 @@ let wins=[
     [2,4,6],
 ];
 wins.forEach(e => {
+    const box1 = boxes[e[0]];
+    const box2 = boxes[e[1]];
+    const box3 = boxes[e[2]];
     if (boxtext[e[0]].innerText === boxtext[e[1]].innerText && boxtext[e[2]].innerText === boxtext[e[1]].innerText && boxtext[e[0]].innerText !== "") {
       document.querySelector('.turn').innerText = boxtext[e[0]].innerText + " won";
       document.querySelector('.img').style.width = "150px";
       gameover = true;
+      box1.classList.add('winning-box');
+      box2.classList.add('winning-box');
+      box3.classList.add('winning-box');
     } 
   });
   if (!gameover) {
@@ -43,7 +49,7 @@ Array.from(boxes).forEach(element=>{
     let boxtext=element.querySelector(".game-text");
     element.addEventListener('click',()=>{
       console.log(gameover);
-        if(boxtext.innerText===""){
+        if(boxtext.innerText==="" && gameover==false){
             boxtext.innerText=turn;
             turn=changeTurn();
             checkWin();
