@@ -4,7 +4,14 @@ let gameover=false;
 const changeTurn=()=>{
 return turn ==="X"?"0":"X";
 }
-
+const checkDrawn=()=>{
+    const boxes = document.querySelectorAll(".game-box");
+  const boxtext = Array.from(boxes).map((box) => box.querySelector(".game-text").innerText);
+  if (boxtext.every((text) => text !== "")) {
+    document.querySelector('.turn').innerText = "Draw";
+    gameover = true;
+  }
+}
 const checkWin=()=>{
     boxtext=document.querySelectorAll('.game-text')
 let wins=[
@@ -16,18 +23,17 @@ let wins=[
     [2,5,8],
     [0,4,8],
     [2,4,6],
-]
+];
 wins.forEach(e => {
     if (boxtext[e[0]].innerText === boxtext[e[1]].innerText && boxtext[e[2]].innerText === boxtext[e[1]].innerText && boxtext[e[0]].innerText !== "") {
       document.querySelector('.turn').innerText = boxtext[e[0]].innerText + " won";
       document.querySelector('.img').style.width = "150px";
       gameover = true;
     } 
-    else if (Array.from(boxes).every(box => box.querySelector('.game-text').innerText !== "")) {
-      document.querySelector('.turn').innerText = "Draw";
-      gameover = true;
-    }
   });
+  if (!gameover) {
+    checkDrawn();
+}
 }
   
 
@@ -36,7 +42,7 @@ let boxes=document.querySelectorAll(".game-box");
 Array.from(boxes).forEach(element=>{
     let boxtext=element.querySelector(".game-text");
     element.addEventListener('click',()=>{
-        
+      console.log(gameover);
         if(boxtext.innerText===""){
             boxtext.innerText=turn;
             turn=changeTurn();
@@ -61,8 +67,6 @@ document.querySelector('#reset').addEventListener('click',()=>{
 boxes=document.querySelectorAll(".game-box");
     Array.from(boxes).forEach((el)=>{
     el.querySelector(".game-text").innerText="";
-
-        
     });
     turn="X";
     gameover=false;
